@@ -14,10 +14,9 @@ def getMovielist():
         resp=requests.get(url,headers)
         resp.encoding="utf-8"
         soup=bs4.BeautifulSoup(resp.text,"html.parser")
-        for li in  soup.find(".grid_view").find_all("li"):
-
-        # title=soup.select(".grid_view > li >.item > .info > a > span")
-            print(soup.get_text())
+        li=soup.find(".grid_view")
+        title=soup.select(".grid_view > li >.item > .info > a > span")
+        print(soup.get_text())
 
 if(__name__=="__main__"):
     getMovielist()
